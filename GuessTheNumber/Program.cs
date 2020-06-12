@@ -44,5 +44,37 @@ namespace GuessTheNumber
                 }
             }
         }
+        public void Menu()
+		{
+            bool playing = true;
+            while (playing)
+            {
+                Console.Clear();
+                Console.WriteLine("**********GUESS A NUMBER***********");
+
+                Console.WriteLine("\n1. Play Guess A Number!");
+                Console.WriteLine("2. Tables Have Turned! You guess the secret digitz!");
+                Console.WriteLine("3. Exitz");
+
+                bool isInt = int.TryParse(Console.ReadKey().KeyChar.ToString(), out int input);
+
+                switch (input)
+                {
+                    case (1):
+                        //run the game
+                        break;
+                    case (2):
+                        //run teh opposite game
+                        break;
+                    case (3):
+                        {
+                            playing = false;
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
+		}
     }
 }
