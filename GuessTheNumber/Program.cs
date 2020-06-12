@@ -14,20 +14,33 @@ namespace GuessTheNumber
     {
         public void Run()
         {
-            int options = 500;
-            int remaining = 500;
+            int guess = 500;
+            int optionsLeft = 500;
+            bool validInput = true;
             while (true)
             {
-                remaining = remaining / 2;
-                Console.WriteLine("Is the number {0}", options + "h or l?");
-                string answer = Console.ReadLine();
-                if (answer == "h")
+                Console.Clear();
+                
+                while (validInput)
                 {
-                    options += remaining;
+                    optionsLeft = optionsLeft / 2;
+                    break;
                 }
+
+                validInput = true;
+                Console.WriteLine("Is the number {0}?", guess + " Y, H or L?");
+                string answer = Console.ReadLine().ToLower();
+                if (answer == "h")
+                    guess += optionsLeft;
+                else if (answer == "l")
+                    guess -= optionsLeft;
+                else if (answer == "y")
+                    break;
                 else
                 {
-                    options -= remaining;
+                    Console.WriteLine("Please type a correct input. Press any key to try again");
+                    Console.ReadKey();
+                    validInput = false;
                 }
             }
         }
