@@ -18,8 +18,8 @@ namespace GuessTheNumber
             int remaining = 500;
             while (true)
             {
-                remaining = remaining / 2;
-                Console.WriteLine("Is the number {0}", options + "h or l?");
+                remaining /= 2;
+                Console.WriteLine("Is the number {0}", options + ", h or l?");
                 string answer = Console.ReadLine();
                 if (answer == "h")
                 {
