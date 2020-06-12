@@ -23,14 +23,35 @@ namespace GuessTheNumber
                 
                 while (validInput)
                 {
-                    optionsLeft = optionsLeft / 2;
+                    optionsLeft /= 2;
                     break;
                 }
 
                 validInput = true;
-                Console.WriteLine("Is the number {0}?", guess + " Y, H or L?");
+                Console.WriteLine("Is the number {0}?", guess);
+				Console.WriteLine("Choose: (H)igher or (L)ower (Y)es?");
                 string answer = Console.ReadLine().ToLower();
-                if (answer == "h")
+
+				switch (answer)
+				{
+                    case ("h"):
+                        guess += optionsLeft;
+                        break;
+                    case ("l"):
+                        guess -= optionsLeft;
+                        break;
+                    case ("y"):
+                        Console.WriteLine("CORRECT!!");
+                        Console.ReadKey();
+                        break;
+					default:
+                        Console.WriteLine("Please type a correct input. Press any key to try again");
+                        Console.ReadKey();
+                        validInput = false;
+						break;
+				}
+                /*
+				if (answer == "h")
                     guess += optionsLeft;
                 else if (answer == "l")
                     guess -= optionsLeft;
@@ -41,7 +62,7 @@ namespace GuessTheNumber
                     Console.WriteLine("Please type a correct input. Press any key to try again");
                     Console.ReadKey();
                     validInput = false;
-                }
+                }*/
             }
         }
         public void Menu()
