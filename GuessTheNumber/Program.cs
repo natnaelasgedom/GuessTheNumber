@@ -15,17 +15,19 @@ namespace GuessTheNumber
         public void Run()
         {
             int options = 500;
+            int remaining = 500;
             while (true)
             {
+                remaining = remaining / 2;
                 Console.WriteLine("Is the number {0}", options + "h or l?");
                 string answer = Console.ReadLine();
                 if (answer == "h")
                 {
-                    options += options / 2;
+                    options += remaining;
                 }
                 else
                 {
-                    options -= options / 2;
+                    options -= remaining;
                 }
             }
         }
