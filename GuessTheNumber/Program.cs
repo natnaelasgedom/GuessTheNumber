@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
 
 namespace GuessTheNumber
 {
@@ -7,10 +8,10 @@ namespace GuessTheNumber
         static void Main(string[] args)
         {
             var random = new Randoms();
-            random.Run();
-        }
+			random.Run();
+		}
     }
-    class Randoms
+    public class Randoms
     {
         public void Run()
         {
@@ -23,7 +24,7 @@ namespace GuessTheNumber
                 
                 while (validInput)
                 {
-                    optionsLeft /= 2;
+					optionsLeft = (int)Math.Round(optionsLeft / 2.0);
                     break;
                 }
 
@@ -31,26 +32,7 @@ namespace GuessTheNumber
                 Console.WriteLine("Is the number {0}?", guess);
 				Console.WriteLine("Choose: (H)igher or (L)ower (Y)es?");
                 string answer = Console.ReadLine().ToLower();
-
-				switch (answer)
-				{
-                    case ("h"):
-                        guess += optionsLeft;
-                        break;
-                    case ("l"):
-                        guess -= optionsLeft;
-                        break;
-                    case ("y"):
-                        Console.WriteLine("CORRECT!!");
-                        Console.ReadKey();
-                        break;
-					default:
-                        Console.WriteLine("Please type a correct input. Press any key to try again");
-                        Console.ReadKey();
-                        validInput = false;
-						break;
-				}
-                /*
+                
 				if (answer == "h")
                     guess += optionsLeft;
                 else if (answer == "l")
@@ -62,9 +44,35 @@ namespace GuessTheNumber
                     Console.WriteLine("Please type a correct input. Press any key to try again");
                     Console.ReadKey();
                     validInput = false;
-                }*/
+                }
             }
         }
+
+        public bool RunTest(int number)
+        {
+            int guess = 500;
+            int optionsLeft = 500;
+
+			for(int i = 0; i < 10; i++)
+            {
+				//Console.WriteLine(guess);
+				optionsLeft = (int)Math.Round(optionsLeft / 2.0);
+
+                if (number > guess)
+                    guess += optionsLeft;
+                
+                else if (number < guess)
+                    guess -= optionsLeft;
+                    
+                else if(number == guess)
+                    return true;
+
+            }
+            return false;
+        }
+        
+
+
         public void Menu()
 		{
             bool playing = true;

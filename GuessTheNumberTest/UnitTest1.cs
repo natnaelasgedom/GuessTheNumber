@@ -1,5 +1,6 @@
 using NUnit.Framework;
-
+using System;
+using GuessTheNumber;
 
 namespace GuessTheNumberTest
 {
@@ -13,11 +14,15 @@ namespace GuessTheNumberTest
         [Test]
         public void RunTest()
         {
-            for (int i = 0; i < 10; i++)
+            bool test = true;
+            var random = new Randoms();
+            for (int i = 1; i <= 999; i++)
             {
-
+                if (random.RunTest(i) == false)
+                    test = false;
             }
-            Assert.Pass();
+           
+           Assert.IsTrue(test);
         }
     }
 }
