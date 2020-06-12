@@ -1,5 +1,6 @@
 using NUnit.Framework;
 
+
 namespace GuessTheNumberTest
 {
     public class Tests
@@ -10,8 +11,12 @@ namespace GuessTheNumberTest
         }
 
         [Test]
-        public void Test1()
+        public void RunTest()
         {
+            for (int i = 0; i < 10; i++)
+            {
+
+            }
             Assert.Pass();
         }
     }

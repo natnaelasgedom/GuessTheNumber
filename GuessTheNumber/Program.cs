@@ -23,7 +23,7 @@ namespace GuessTheNumber
                 string answer = Console.ReadLine();
                 if (answer == "h")
                 {
-                    options += remaining;
+                    options += remaining;   
                 }
                 else
                 {
