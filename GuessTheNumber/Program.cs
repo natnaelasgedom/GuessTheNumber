@@ -16,23 +16,31 @@ namespace GuessTheNumber
         {
             int guess = 500;
             int optionsLeft = 500;
-            bool correct = false;
-            while (!correct)
+            bool validInput = true;
+            while (true)
             {
-                optionsLeft = optionsLeft / 2;
-                Console.WriteLine("Is the number {0}?", guess + " yes, higher or lower?");
+                Console.Clear();
+                
+                while (validInput)
+                {
+                    optionsLeft = optionsLeft / 2;
+                    break;
+                }
+
+                validInput = true;
+                Console.WriteLine("Is the number {0}?", guess + " Y, H or L?");
                 string answer = Console.ReadLine().ToLower();
-                if (answer == "higher")
-                {
+                if (answer == "h")
                     guess += optionsLeft;
-                }
-                else if (answer == "lower")
-                {
+                else if (answer == "l")
                     guess -= optionsLeft;
-                }
-                else if (answer == "yes")
+                else if (answer == "y")
+                    break;
+                else
                 {
-                    correct = true;
+                    Console.WriteLine("Please type a correct input. Press any key to try again");
+                    Console.ReadKey();
+                    validInput = false;
                 }
             }
         }
