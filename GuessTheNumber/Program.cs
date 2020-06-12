@@ -15,8 +15,8 @@ namespace GuessTheNumber
     {
         public void Run()
         {
-            int guess = 500;
-            int optionsLeft = 500;
+            double guess = 500;
+            double optionsLeft = 500;
             bool validInput = true;
             while (true)
             {
