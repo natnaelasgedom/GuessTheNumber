@@ -14,20 +14,25 @@ namespace GuessTheNumber
     {
         public void Run()
         {
-            int options = 500;
-            int remaining = 500;
-            while (true)
+            int guess = 500;
+            int optionsLeft = 500;
+            bool correct = false;
+            while (!correct)
             {
-                remaining = remaining / 2;
-                Console.WriteLine("Is the number {0}", options + "h or l?");
-                string answer = Console.ReadLine();
-                if (answer == "h")
+                optionsLeft = optionsLeft / 2;
+                Console.WriteLine("Is the number {0}?", guess + " yes, higher or lower?");
+                string answer = Console.ReadLine().ToLower();
+                if (answer == "higher")
                 {
-                    options += remaining;
+                    guess += optionsLeft;
                 }
-                else
+                else if (answer == "lower")
                 {
-                    options -= remaining;
+                    guess -= optionsLeft;
+                }
+                else if (answer == "yes")
+                {
+                    correct = true;
                 }
             }
         }
