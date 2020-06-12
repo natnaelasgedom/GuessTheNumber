@@ -1,6 +1,7 @@
 using NUnit.Framework;
 
 
+
 namespace GuessTheNumberTest
 {
     public class Tests
@@ -13,10 +14,7 @@ namespace GuessTheNumberTest
         [Test]
         public void RunTest()
         {
-            for (int i = 0; i < 10; i++)
-            {
-
-            }
+            //Må teste små metoder og deres logikk
             Assert.Pass();
         }
     }
