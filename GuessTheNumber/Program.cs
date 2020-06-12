@@ -14,8 +14,8 @@ namespace GuessTheNumber
     {
         public void Run()
         {
-            int guess = 500;
-            int optionsLeft = 500;
+            double guess = 500;
+            double optionsLeft = 500;
             bool validInput = true;
             while (true)
             {
@@ -35,10 +35,10 @@ namespace GuessTheNumber
 				switch (answer)
 				{
                     case ("h"):
-                        guess += optionsLeft;
+                        guess = Math.Round(guess + optionsLeft);
                         break;
                     case ("l"):
-                        guess -= optionsLeft;
+                        guess = Math.Round(guess - optionsLeft);
                         break;
                     case ("y"):
                         Console.WriteLine("CORRECT!!");
